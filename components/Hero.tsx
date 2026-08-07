@@ -46,20 +46,44 @@ export default function Hero() {
         className="mt-10 flex gap-4 justify-center"
       >
 
-        <a
-          href="#projects"
-          className="rounded-full bg-white text-black px-8 py-3 font-medium hover:bg-zinc-200 transition"
-        >
-          Мои работы
-        </a>
+<a
+href="#projects"
+className="
+rounded-full
+bg-white
+text-black
+px-8
+py-3
+font-medium
+transition-all
+duration-300
+hover:scale-105
+hover:shadow-xl
+hover:shadow-white/20
+"
+>
+Мои работы
+</a>
 
 
-        <a
-          href="#contact"
-          className="rounded-full border border-zinc-700 px-8 py-3 font-medium hover:bg-zinc-900 transition"
-        >
-          Связаться
-        </a>
+<a
+href="#contact"
+className="
+rounded-full
+border
+border-zinc-700
+px-8
+py-3
+font-medium
+transition-all
+duration-300
+hover:scale-105
+hover:border-blue-500
+hover:bg-blue-500/10
+"
+>
+Связаться
+</a>
 
       </motion.div>
 
