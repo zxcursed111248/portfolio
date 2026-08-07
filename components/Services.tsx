@@ -18,7 +18,10 @@ export default function Services() {
   ];
 
   return (
-    <section className="w-full max-w-6xl py-32">
+    <section
+  id="services"
+  className="w-full max-w-6xl py-32 scroll-mt-24"
+>
 
       <div className="text-center mb-16">
 

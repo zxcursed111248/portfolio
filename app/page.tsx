@@ -1,9 +1,14 @@
+import Contact from "@/components/Contact";
+import Projects from "@/components/Projects";
 import Services from "@/components/Services";
 import Navbar from "@/components/Navbar";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-zinc-950 text-white flex flex-col items-center px-6">
+    <main
+  id="home"
+  className="min-h-screen bg-zinc-950 text-white flex flex-col items-center px-6"
+>
   
       <Navbar />
   
@@ -25,18 +30,26 @@ export default function Home() {
         </p>
   
         <div className="mt-10 flex gap-4 justify-center">
-          <button className="rounded-full bg-white text-black px-8 py-3 font-medium hover:bg-zinc-200 transition">
-            Мои работы
-          </button>
+        <a
+  href="#projects"
+  className="rounded-full bg-white text-black px-8 py-3 font-medium hover:bg-zinc-200 transition"
+>
+  Мои работы
+</a>
   
-          <button className="rounded-full border border-zinc-700 px-8 py-3 font-medium hover:bg-zinc-900 transition">
-            Связаться
-          </button>
+<a
+  href="#contact"
+  className="rounded-full border border-zinc-700 px-8 py-3 font-medium hover:bg-zinc-900 transition"
+>
+  Связаться
+</a>
         </div>
   
       </section>
   
       <Services />
-  
+      <Projects />
+      <Contact />
+
     </main>
   );}
