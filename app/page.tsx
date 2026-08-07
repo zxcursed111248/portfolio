@@ -1,3 +1,4 @@
+import Hero from "@/components/Hero";
 import Contact from "@/components/Contact";
 import Projects from "@/components/Projects";
 import Services from "@/components/Services";
@@ -6,50 +7,46 @@ import Navbar from "@/components/Navbar";
 export default function Home() {
   return (
     <main
-  id="home"
-  className="min-h-screen bg-zinc-950 text-white flex flex-col items-center px-6"
->
-  
+      id="home"
+      className="
+        min-h-screen
+        bg-zinc-950
+        text-white
+        flex
+        flex-col
+        items-center
+        px-6
+        overflow-hidden
+      "
+    >
+
       <Navbar />
-  
-      <section className="max-w-4xl text-center pt-32">
-  
-        <p className="text-sm uppercase tracking-[0.3em] text-zinc-400 mb-6">
-          AI Web Studio
-        </p>
-  
-        <h1 className="text-5xl md:text-7xl font-bold leading-tight">
-          Создаю сайты,
-          <br />
-          которые помогают бизнесу расти
-        </h1>
-  
-        <p className="mt-8 text-lg text-zinc-400 max-w-2xl mx-auto">
-          Современный дизайн, высокая скорость и AI-инструменты.
-          Создаю сайты, которые помогают компаниям получать клиентов.
-        </p>
-  
-        <div className="mt-10 flex gap-4 justify-center">
-        <a
-  href="#projects"
-  className="rounded-full bg-white text-black px-8 py-3 font-medium hover:bg-zinc-200 transition"
->
-  Мои работы
-</a>
-  
-<a
-  href="#contact"
-  className="rounded-full border border-zinc-700 px-8 py-3 font-medium hover:bg-zinc-900 transition"
->
-  Связаться
-</a>
-        </div>
-  
-      </section>
-  
+
+      <div
+        className="
+          absolute
+          top-0
+          left-1/2
+          -translate-x-1/2
+          w-[600px]
+          h-[600px]
+          bg-blue-500/20
+          rounded-full
+          blur-[120px]
+          -z-0
+        "
+      >
+      </div>
+
+
+      <Hero />
+
       <Services />
+
       <Projects />
+
       <Contact />
 
     </main>
-  );}
+  );
+}
