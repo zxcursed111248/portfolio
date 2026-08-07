@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 export default function Services() {
   const services = [
     {
@@ -39,9 +42,13 @@ export default function Services() {
       <div className="grid md:grid-cols-3 gap-8">
 
         {services.map((service) => (
-          <div
-            key={service.title}
-            className="
+          <motion.div
+          key={service.title}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="
               rounded-3xl
               border border-zinc-800
               bg-zinc-950
@@ -60,8 +67,8 @@ export default function Services() {
               {service.description}
             </p>
 
-          </div>
-        ))}
+            </motion.div>
+    ))}
 
       </div>
 

@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 export default function Contact() {
     return (
       <section
@@ -5,7 +8,13 @@ export default function Contact() {
         className="w-full max-w-6xl py-32"
       >
   
-        <div className="rounded-3xl border border-zinc-800 bg-zinc-950 p-12 text-center">
+  <motion.div
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.6 }}
+  className="rounded-3xl border border-zinc-800 bg-zinc-950 p-12 text-center"
+>
   
           <h2 className="text-4xl md:text-5xl font-bold">
             Давайте создадим что-то вместе
@@ -69,8 +78,7 @@ export default function Contact() {
           </div>
   
   
-        </div>
-  
+          </motion.div>
       </section>
     );
   }
