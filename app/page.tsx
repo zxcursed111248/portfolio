@@ -1,8 +1,13 @@
+import Navbar from "@/components/Navbar";
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white flex items-center justify-center px-6">
+    <main className="min-h-screen bg-zinc-950 text-white flex items-center justify-center px-6">
+
+      <Navbar />
+
       <section className="max-w-4xl text-center">
-        
+
         <p className="text-sm uppercase tracking-[0.3em] text-zinc-400 mb-6">
           AI Web Studio
         </p>
@@ -29,6 +34,7 @@ export default function Home() {
         </div>
 
       </section>
+
     </main>
   );
 }
