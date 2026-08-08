@@ -5,16 +5,10 @@ import { motion } from "framer-motion";
 export default function Hero() {
   return (
     <section
-      id="hero"
-      className="relative min-h-[90vh] flex items-center justify-center overflow-hidden px-6"
-    >
-      {/* Background glow */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute left-1/2 top-1/3 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-blue-500/10 blur-[120px]" />
-        <div className="absolute left-1/4 top-1/2 h-[300px] w-[300px] rounded-full bg-purple-500/5 blur-[100px]" />
-      </div>
-
-      <div className="mx-auto w-full max-w-5xl text-center">
+  id="home"
+  className="w-full scroll-mt-24 pt-24"
+>
+      <div className="relative z-10 mx-auto w-full max-w-5xl text-center">
         {/* Label */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,7 +30,15 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
-          className="text-5xl font-bold leading-[1.05] tracking-tight text-white md:text-7xl lg:text-8xl"
+          className="
+            text-5xl
+            font-bold
+            leading-[1.05]
+            tracking-tight
+            text-white
+            md:text-7xl
+            lg:text-8xl
+          "
         >
           Создаю сайты,
           <br />
@@ -51,9 +53,17 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9 }}
-          className="mx-auto mt-8 max-w-2xl text-base leading-8 text-zinc-400 md:text-lg"
+          className="
+            mx-auto
+            mt-8
+            max-w-2xl
+            text-base
+            leading-8
+            text-zinc-400
+            md:text-lg
+          "
         >
-          Современные сайты, дизайн и AI-решения для бизнеса —
+          Современные сайты и AI-решения для бизнеса —
           от идеи до готового продукта.
         </motion.p>
 
@@ -65,7 +75,7 @@ export default function Hero() {
           className="mt-6"
         >
           <span className="text-sm text-zinc-500">
-            Создание сайта
+            Сайт для бизнеса
           </span>
 
           <span className="ml-2 font-semibold text-white">
@@ -78,7 +88,14 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1 }}
-          className="mt-10 flex flex-col justify-center gap-4 sm:flex-row"
+          className="
+            mt-10
+            flex
+            flex-col
+            justify-center
+            gap-4
+            sm:flex-row
+          "
         >
           <a
             href="#contact"
@@ -92,11 +109,13 @@ export default function Hero() {
               transition-all
               duration-300
               hover:scale-105
+              hover:bg-zinc-200
               hover:shadow-xl
               hover:shadow-white/20
+              active:scale-95
             "
           >
-            Обсудить проект
+            Обсудить проект →
           </a>
 
           <a
@@ -114,6 +133,7 @@ export default function Hero() {
               hover:scale-105
               hover:border-zinc-500
               hover:bg-white/5
+              active:scale-95
             "
           >
             Посмотреть работы
@@ -127,7 +147,8 @@ export default function Hero() {
           transition={{ duration: 1.3 }}
           className="mt-8 text-sm text-zinc-500"
         >
-          Отвечаю на заявки и начинаю работу после обсуждения задачи
+          Обсудим задачу, предложу решение и назову точную стоимость
+          до начала работы.
         </motion.p>
 
         {/* Scroll indicator */}
@@ -135,7 +156,15 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.5, duration: 0.8 }}
-          className="mt-16 flex flex-col items-center gap-3 text-zinc-600"
+          className="
+            mt-14
+            hidden
+            flex-col
+            items-center
+            gap-3
+            text-zinc-600
+            sm:flex
+          "
         >
           <span className="text-xs uppercase tracking-[0.25em]">
             Scroll

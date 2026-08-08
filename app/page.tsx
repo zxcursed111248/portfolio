@@ -1,3 +1,4 @@
+import Process from "@/components/Process";
 import WhyMe from "@/components/WhyMe";
 import Hero from "@/components/Hero";
 import Contact from "@/components/Contact";
@@ -62,6 +63,8 @@ export default function Home() {
         <Projects />
 
         <WhyMe />
+        
+        <Process />
 
         <Contact />
       </div>
