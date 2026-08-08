@@ -4,59 +4,57 @@ import Contact from "@/components/Contact";
 import Projects from "@/components/Projects";
 import Services from "@/components/Services";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <main
       id="home"
       className="
-        min-h-screen
-        bg-zinc-950
-        text-white
-        flex
-        flex-col
-        items-center
-        px-6
-        overflow-hidden
         relative
+        min-h-screen
+        overflow-hidden
+        bg-black
+        text-white
       "
     >
       {/* Верхнее свечение */}
       <div
         className="
+          pointer-events-none
           absolute
+          left-0
           top-0
-          left-1/2
-          -translate-x-1/2
-          w-[650px]
-          h-[650px]
-          bg-blue-500/30
-          rounded-full
-          blur-[150px]
-          animate-pulse
           z-0
+          h-[500px]
+          w-[500px]
+          rounded-full
+          bg-blue-500/20
+          blur-[150px]
         "
       />
 
       {/* Нижнее свечение */}
       <div
         className="
+          pointer-events-none
           absolute
           bottom-0
           right-0
-          w-[500px]
-          h-[500px]
-          bg-purple-500/30
-          rounded-full
-          blur-[150px]
-          animate-pulse
           z-0
+          h-[500px]
+          w-[500px]
+          rounded-full
+          bg-purple-500/20
+          blur-[150px]
         "
       />
 
+      {/* Navigation */}
       <Navbar />
 
-      <div className="relative z-10 w-full flex flex-col items-center">
+      {/* Main content */}
+      <div className="relative z-10 flex w-full flex-col items-center">
         <Hero />
 
         <Services />
@@ -66,6 +64,11 @@ export default function Home() {
         <WhyMe />
 
         <Contact />
+      </div>
+
+      {/* Footer */}
+      <div className="relative z-10">
+        <Footer />
       </div>
     </main>
   );
