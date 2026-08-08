@@ -1,15 +1,5 @@
 import { NextResponse } from "next/server";
 
-console.log(
-  "TOKEN:",
-  process.env.TELEGRAM_BOT_TOKEN ? "Есть" : "Нет"
-);
-
-console.log(
-  "CHAT ID:",
-  process.env.TELEGRAM_CHAT_ID ? "Есть" : "Нет"
-);
-
 export async function POST(request: Request) {
   try {
     const { name, email, message } = await request.json();
