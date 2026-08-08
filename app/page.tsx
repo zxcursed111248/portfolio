@@ -21,7 +21,6 @@ export default function Home() {
         relative
       "
     >
-
       {/* Верхнее свечение */}
       <div
         className="
@@ -55,11 +54,9 @@ export default function Home() {
         "
       />
 
-
       <Navbar />
 
       <div className="relative z-10 w-full flex flex-col items-center">
-
         <Hero />
 
         <Services />
@@ -69,9 +66,7 @@ export default function Home() {
         <WhyMe />
 
         <Contact />
-
       </div>
-
     </main>
   );
 }
