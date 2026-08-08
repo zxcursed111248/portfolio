@@ -4,27 +4,56 @@ import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
-  subsets: ["latin"],
+  subsets: ["latin", "cyrillic"],
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
-  subsets: ["latin"],
+  subsets: ["latin", "cyrillic"],
 });
 
 export const metadata: Metadata = {
-  title: "AI Web Studio | Modern Websites",
+  title: "AI Web Studio — Создание сайтов для бизнеса",
+
   description:
-    "Создание современных сайтов и цифровых решений с использованием AI.",
+    "Создаю современные сайты для бизнеса: лендинги, сайты компаний и интернет-магазины. Современный дизайн, быстрая разработка и AI-инструменты.",
+
+  keywords: [
+    "создание сайтов",
+    "сайт для бизнеса",
+    "разработка сайтов",
+    "лендинг",
+    "интернет-магазин",
+    "AI Web Studio",
+  ],
+
+  openGraph: {
+    title: "AI Web Studio — Создание сайтов для бизнеса",
+    description:
+      "Современные сайты для бизнеса — от лендингов до интернет-магазинов.",
+    type: "website",
+    locale: "ru_RU",
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+
+  themeColor: "#000000",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
     <html
-      lang="en"
+      lang="ru"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body>
+      <body className="min-h-full bg-black text-white">
         {children}
       </body>
     </html>
