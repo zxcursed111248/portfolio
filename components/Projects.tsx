@@ -11,6 +11,7 @@ const projects = [
     description:
       "Современный сайт ресторана с акцентом на атмосферу заведения, меню и удобную связь с клиентами.",
     image: "/images/restaurant.jpg",
+    href: "/projects/restaurant",
     features: [
       "Адаптивный дизайн",
       "Меню и информация о заведении",
@@ -24,6 +25,7 @@ const projects = [
     description:
       "Современная концепция интернет-магазина с удобной подачей товаров и акцентом на простой пользовательский путь.",
     image: "/images/shop.jpg",
+    href: "/projects/shop",
     features: [
       "Каталог товаров",
       "Адаптивный интерфейс",
@@ -37,6 +39,7 @@ const projects = [
     description:
       "Профессиональный сайт компании для презентации услуг, формирования доверия и привлечения новых клиентов.",
     image: "/images/company.jpg",
+    href: "/projects/company",
     features: [
       "Презентация компании",
       "Структура услуг",
@@ -49,9 +52,8 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="w-full max-w-6xl scroll-mt-24 py-32"
+      className="mx-auto w-full max-w-6xl px-6 py-24 md:py-32"
     >
-      {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -59,11 +61,11 @@ export default function Projects() {
         transition={{ duration: 0.6 }}
         className="mb-16 text-center"
       >
-        <p className="mb-4 text-sm uppercase tracking-[0.3em] text-zinc-500">
+        <p className="text-sm uppercase tracking-[0.3em] text-zinc-600">
           Selected work
         </p>
 
-        <h2 className="text-4xl font-bold tracking-tight md:text-6xl">
+        <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-6xl">
           Мои работы
         </h2>
 
@@ -73,7 +75,6 @@ export default function Projects() {
         </p>
       </motion.div>
 
-      {/* Projects */}
       <div className="grid gap-8 md:grid-cols-2">
         {projects.map((project, index) => (
           <motion.article
@@ -100,7 +101,6 @@ export default function Projects() {
               hover:shadow-black/30
             "
           >
-            {/* Project image */}
             <div className="relative aspect-[16/10] overflow-hidden bg-zinc-900">
               <img
                 src={project.image}
@@ -115,7 +115,6 @@ export default function Projects() {
                 "
               />
 
-              {/* Overlay */}
               <div
                 className="
                   absolute
@@ -129,35 +128,33 @@ export default function Projects() {
                   group-hover:bg-black/45
                 "
               >
-               <Link
-  href="/projects/restaurant"
-  className="
-    translate-y-4
-    rounded-full
-    border
-    border-white/20
-    bg-white/10
-    px-6
-    py-3
-    text-sm
-    font-medium
-    text-white
-    opacity-0
-    backdrop-blur-md
-    transition-all
-    duration-500
-    group-hover:translate-y-0
-    group-hover:opacity-100
-  "
->
-  Посмотреть кейс →
-</Link>
+                <Link
+                  href={project.href}
+                  className="
+                    translate-y-4
+                    rounded-full
+                    border
+                    border-white/20
+                    bg-white/10
+                    px-6
+                    py-3
+                    text-sm
+                    font-medium
+                    text-white
+                    opacity-0
+                    backdrop-blur-md
+                    transition-all
+                    duration-500
+                    group-hover:translate-y-0
+                    group-hover:opacity-100
+                  "
+                >
+                  Посмотреть кейс →
+                </Link>
               </div>
             </div>
 
-            {/* Content */}
             <div className="p-8 md:p-10">
-              {/* Project number */}
               <div className="mb-5 flex items-center justify-between">
                 <span className="text-sm tracking-[0.25em] text-zinc-600">
                   {project.number}
@@ -168,17 +165,14 @@ export default function Projects() {
                 </span>
               </div>
 
-              {/* Title */}
               <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">
                 {project.title}
               </h3>
 
-              {/* Description */}
               <p className="mt-4 leading-7 text-zinc-400">
                 {project.description}
               </p>
 
-              {/* Features */}
               <div className="mt-7">
                 <p className="mb-3 text-sm font-medium text-zinc-300">
                   Что сделано
@@ -197,7 +191,6 @@ export default function Projects() {
                 </ul>
               </div>
 
-              {/* CTA */}
               <a
                 href="#contact"
                 className="
