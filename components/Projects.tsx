@@ -1,37 +1,47 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const projects = [
   {
     number: "01",
+    category: "RESTAURANT",
     title: "Сайт ресторана",
     description:
-      "Современный сайт ресторана с меню, фотографиями и удобной формой заявки.",
-    
+      "Современный сайт ресторана с акцентом на атмосферу заведения, меню и удобную связь с клиентами.",
     image: "/images/restaurant.jpg",
-    result:
-      "Презентация ресторана и удобная связь с клиентами",
+    features: [
+      "Адаптивный дизайн",
+      "Меню и информация о заведении",
+      "Форма заявки",
+    ],
   },
   {
     number: "02",
+    category: "E-COMMERCE",
     title: "Интернет-магазин",
     description:
-      "Современный интернет-магазин с каталогом товаров и удобным интерфейсом.",
-    
+      "Современная концепция интернет-магазина с удобной подачей товаров и акцентом на простой пользовательский путь.",
     image: "/images/shop.jpg",
-    result:
-      "Удобная структура каталога для онлайн-продаж",
+    features: [
+      "Каталог товаров",
+      "Адаптивный интерфейс",
+      "Удобная навигация",
+    ],
   },
   {
     number: "03",
+    category: "BUSINESS",
     title: "Корпоративный сайт",
     description:
-      "Сайт компании для презентации услуг и привлечения новых клиентов.",
-    
+      "Профессиональный сайт компании для презентации услуг, формирования доверия и привлечения новых клиентов.",
     image: "/images/company.jpg",
-    result:
-      "Профессиональная презентация компании в интернете",
+    features: [
+      "Презентация компании",
+      "Структура услуг",
+      "Форма связи",
+    ],
   },
 ];
 
@@ -39,167 +49,182 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="px-6 py-24 md:py-32"
+      className="w-full max-w-6xl scroll-mt-24 py-32"
     >
-      <div className="mx-auto max-w-7xl">
-        {/* Section heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mb-16 text-center"
-        >
-          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-zinc-500">
-            Portfolio
-          </p>
+      {/* Heading */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="mb-16 text-center"
+      >
+        <p className="mb-4 text-sm uppercase tracking-[0.3em] text-zinc-500">
+          Selected work
+        </p>
 
-          <h2 className="text-4xl font-bold tracking-tight md:text-6xl">
-            Мои работы
-          </h2>
+        <h2 className="text-4xl font-bold tracking-tight md:text-6xl">
+          Мои работы
+        </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-zinc-400 md:text-lg">
-            Примеры проектов и решений, которые я создаю
-            для бизнеса.
-          </p>
-        </motion.div>
+        <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-zinc-400 md:text-lg">
+          Демонстрационные проекты, которые показывают подход
+          к дизайну и созданию современных сайтов.
+        </p>
+      </motion.div>
 
-        {/* Projects */}
-        <div className="grid gap-8 md:grid-cols-3">
-          {projects.map((project, index) => (
-            <motion.article
-              key={project.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.12,
-              }}
-              className="
-                group
-                overflow-hidden
-                rounded-3xl
-                border
-                border-zinc-800
-                bg-zinc-950
-                transition-all
-                duration-500
-                hover:-translate-y-2
-                hover:border-zinc-600
-                hover:shadow-2xl
-                hover:shadow-black/40
-              "
-            >
-              {/* Image */}
-              <div className="relative overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="
-                    h-64
-                    w-full
-                    object-cover
-                    transition-transform
-                    duration-700
-                    group-hover:scale-105
-                  "
-                />
+      {/* Projects */}
+      <div className="grid gap-8 md:grid-cols-2">
+        {projects.map((project, index) => (
+          <motion.article
+            key={project.title}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.6,
+              delay: index * 0.12,
+            }}
+            className="
+              group
+              overflow-hidden
+              rounded-3xl
+              border
+              border-zinc-800
+              bg-zinc-950
+              transition-all
+              duration-500
+              hover:-translate-y-2
+              hover:border-zinc-600
+              hover:shadow-2xl
+              hover:shadow-black/30
+            "
+          >
+            {/* Project image */}
+            <div className="relative aspect-[16/10] overflow-hidden bg-zinc-900">
+              <img
+                src={project.image}
+                alt={project.title}
+                className="
+                  h-full
+                  w-full
+                  object-cover
+                  transition-transform
+                  duration-700
+                  group-hover:scale-105
+                "
+              />
 
-                {/* Dark overlay */}
-                <div
-                  className="
-                    absolute
-                    inset-0
-                    bg-black/10
-                    transition-all
-                    duration-500
-                    group-hover:bg-black/0
-                  "
-                />
+              {/* Overlay */}
+              <div
+                className="
+                  absolute
+                  inset-0
+                  flex
+                  items-center
+                  justify-center
+                  bg-black/0
+                  transition-all
+                  duration-500
+                  group-hover:bg-black/45
+                "
+              >
+               <Link
+  href="/projects/restaurant"
+  className="
+    translate-y-4
+    rounded-full
+    border
+    border-white/20
+    bg-white/10
+    px-6
+    py-3
+    text-sm
+    font-medium
+    text-white
+    opacity-0
+    backdrop-blur-md
+    transition-all
+    duration-500
+    group-hover:translate-y-0
+    group-hover:opacity-100
+  "
+>
+  Посмотреть кейс →
+</Link>
+              </div>
+            </div>
 
-                {/* Project number */}
-                <div
-                  className="
-                    absolute
-                    left-5
-                    top-5
-                    rounded-full
-                    border
-                    border-white/10
-                    bg-black/50
-                    px-4
-                    py-2
-                    text-xs
-                    tracking-[0.2em]
-                    text-white
-                    backdrop-blur-md
-                  "
-                >
+            {/* Content */}
+            <div className="p-8 md:p-10">
+              {/* Project number */}
+              <div className="mb-5 flex items-center justify-between">
+                <span className="text-sm tracking-[0.25em] text-zinc-600">
                   {project.number}
-                </div>
+                </span>
+
+                <span className="rounded-full border border-zinc-800 px-3 py-1 text-xs uppercase tracking-wider text-zinc-500">
+                  {project.category}
+                </span>
               </div>
 
-              {/* Content */}
-              <div className="p-7">
-                <h3 className="text-2xl font-semibold tracking-tight">
-                  {project.title}
-                </h3>
+              {/* Title */}
+              <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">
+                {project.title}
+              </h3>
 
-                <p className="mt-4 leading-7 text-zinc-400">
-                  {project.description}
+              {/* Description */}
+              <p className="mt-4 leading-7 text-zinc-400">
+                {project.description}
+              </p>
+
+              {/* Features */}
+              <div className="mt-7">
+                <p className="mb-3 text-sm font-medium text-zinc-300">
+                  Что сделано
                 </p>
 
-                {/* Result */}
-                <div className="mt-6 rounded-2xl border border-zinc-800 bg-zinc-900/40 p-5">
-                  <p className="mb-2 text-xs uppercase tracking-[0.2em] text-zinc-500">
-                    Результат
-                  </p>
-
-                  <p className="text-sm leading-6 text-zinc-300">
-                    {project.result}
-                  </p>
-                </div>
-
-               
-                {/* Button */}
-                <a
-                  href="#contact"
-                  className="
-                    mt-6
-                    flex
-                    w-full
-                    items-center
-                    justify-center
-                    gap-2
-                    rounded-xl
-                    border
-                    border-zinc-700
-                    py-3
-                    font-medium
-                    transition-all
-                    duration-300
-                    group-hover:border-zinc-500
-                    hover:bg-white
-                    hover:text-black
-                    active:scale-[0.98]
-                  "
-                >
-                  Обсудить похожий проект
-                  <span
-                    className="
-                      transition-transform
-                      duration-300
-                      group-hover:translate-x-1
-                    "
-                  >
-                    →
-                  </span>
-                </a>
+                <ul className="space-y-2">
+                  {project.features.map((feature) => (
+                    <li
+                      key={feature}
+                      className="flex items-center gap-3 text-sm text-zinc-500"
+                    >
+                      <span className="h-1.5 w-1.5 rounded-full bg-zinc-600" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </motion.article>
-          ))}
-        </div>
+
+              {/* CTA */}
+              <a
+                href="#contact"
+                className="
+                  mt-8
+                  inline-flex
+                  items-center
+                  rounded-full
+                  border
+                  border-zinc-700
+                  px-6
+                  py-3
+                  text-sm
+                  font-medium
+                  text-white
+                  transition-all
+                  duration-300
+                  hover:border-white
+                  hover:bg-white
+                  hover:text-black
+                  active:scale-95
+                "
+              >
+                Обсудить похожий проект →
+              </a>
+            </div>
+          </motion.article>
+        ))}
       </div>
     </section>
   );
