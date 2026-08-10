@@ -52,7 +52,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="mx-auto w-full max-w-7xl px-6 py-24 md:px-10 md:py-32"
+      className="w-full scroll-mt-24 py-24 md:py-32"
     >
       {/* Heading */}
       <motion.div
@@ -60,24 +60,30 @@ export default function Projects() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-        className="mb-16 text-center"
+        className="mx-auto mb-16 max-w-3xl px-6 text-center"
       >
-        <p className="text-sm uppercase tracking-[0.3em] text-zinc-600">
-          Selected work
-        </p>
+        <div className="mb-6 flex items-center justify-center gap-3">
+          <span className="h-px w-8 bg-zinc-800" />
 
-        <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-6xl">
+          <p className="text-xs font-medium uppercase tracking-[0.35em] text-zinc-600">
+            Selected work
+          </p>
+
+          <span className="h-px w-8 bg-zinc-800" />
+        </div>
+
+        <h2 className="text-4xl font-bold tracking-tight text-white md:text-6xl">
           Мои работы
         </h2>
 
         <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-zinc-400 md:text-lg">
-          Демонстрационные проекты, которые показывают подход
+          Демонстрационные проекты, которые показывают мой подход
           к дизайну и созданию современных сайтов.
         </p>
       </motion.div>
 
       {/* Projects */}
-      <div className="grid gap-8 md:grid-cols-2">
+      <div className="mx-auto grid max-w-6xl gap-8 px-6 md:grid-cols-2">
         {projects.map((project, index) => (
           <motion.article
             key={project.title}
@@ -100,7 +106,7 @@ export default function Projects() {
               hover:-translate-y-2
               hover:border-zinc-600
               hover:shadow-2xl
-              hover:shadow-black/30
+              hover:shadow-black/40
             "
           >
             {/* Image */}
@@ -114,9 +120,71 @@ export default function Projects() {
                   object-cover
                   transition-transform
                   duration-700
+                  ease-out
                   group-hover:scale-105
                 "
               />
+
+              {/* Dark gradient */}
+              <div
+                className="
+                  pointer-events-none
+                  absolute
+                  inset-0
+                  bg-gradient-to-t
+                  from-black/50
+                  via-transparent
+                  to-transparent
+                  opacity-70
+                "
+              />
+
+              {/* Project number */}
+              <div
+                className="
+                  absolute
+                  left-6
+                  top-6
+                  flex
+                  h-10
+                  w-10
+                  items-center
+                  justify-center
+                  rounded-full
+                  border
+                  border-white/15
+                  bg-black/30
+                  text-xs
+                  font-medium
+                  text-white
+                  backdrop-blur-md
+                "
+              >
+                {project.number}
+              </div>
+
+              {/* Category */}
+              <div
+                className="
+                  absolute
+                  right-6
+                  top-6
+                  rounded-full
+                  border
+                  border-white/15
+                  bg-black/30
+                  px-3
+                  py-1.5
+                  text-[10px]
+                  font-medium
+                  uppercase
+                  tracking-[0.2em]
+                  text-zinc-300
+                  backdrop-blur-md
+                "
+              >
+                {project.category}
+              </div>
 
               {/* Desktop overlay */}
               <div
@@ -130,19 +198,19 @@ export default function Projects() {
                   transition-all
                   duration-500
                   sm:flex
-                  group-hover:bg-black/45
+                  group-hover:bg-black/40
                 "
               >
                 <Link
                   href={project.href}
                   className="
-                    translate-y-4
+                    translate-y-5
                     rounded-full
                     border
                     border-white/20
                     bg-white/10
-                    px-6
-                    py-3
+                    px-7
+                    py-3.5
                     text-sm
                     font-medium
                     text-white
@@ -150,6 +218,7 @@ export default function Projects() {
                     backdrop-blur-md
                     transition-all
                     duration-500
+                    hover:bg-white/20
                     group-hover:translate-y-0
                     group-hover:opacity-100
                   "
@@ -161,19 +230,8 @@ export default function Projects() {
 
             {/* Content */}
             <div className="p-7 md:p-10">
-              {/* Number + category */}
-              <div className="mb-5 flex items-center justify-between gap-4">
-                <span className="text-sm tracking-[0.25em] text-zinc-600">
-                  {project.number}
-                </span>
-
-                <span className="rounded-full border border-zinc-800 px-3 py-1 text-xs uppercase tracking-wider text-zinc-500">
-                  {project.category}
-                </span>
-              </div>
-
               {/* Title */}
-              <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">
+              <h3 className="text-2xl font-semibold tracking-tight text-white md:text-3xl">
                 {project.title}
               </h3>
 
@@ -182,19 +240,23 @@ export default function Projects() {
                 {project.description}
               </p>
 
+              {/* Divider */}
+              <div className="my-7 h-px bg-zinc-900" />
+
               {/* Features */}
-              <div className="mt-7">
-                <p className="mb-3 text-sm font-medium text-zinc-300">
+              <div>
+                <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-zinc-600">
                   Что сделано
                 </p>
 
-                <ul className="space-y-2">
+                <ul className="space-y-3">
                   {project.features.map((feature) => (
                     <li
                       key={feature}
-                      className="flex items-center gap-3 text-sm text-zinc-500"
+                      className="flex items-center gap-3 text-sm text-zinc-400"
                     >
                       <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-zinc-600" />
+
                       {feature}
                     </li>
                   ))}
@@ -206,6 +268,7 @@ export default function Projects() {
                 <Link
                   href={project.href}
                   className="
+                    group/button
                     inline-flex
                     items-center
                     rounded-full
@@ -222,7 +285,11 @@ export default function Projects() {
                     active:scale-95
                   "
                 >
-                  Посмотреть кейс →
+                  Посмотреть кейс
+
+                  <span className="ml-2 transition-transform duration-300 group-hover/button:translate-x-1">
+                    →
+                  </span>
                 </Link>
 
                 <a

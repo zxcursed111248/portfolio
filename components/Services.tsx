@@ -52,9 +52,9 @@ export default function Services() {
   return (
     <section
       id="services"
-      className="px-6 py-24 md:py-32"
+      className="w-full scroll-mt-24 px-6 py-24 md:py-32"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-6xl">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -63,9 +63,15 @@ export default function Services() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-zinc-500">
-            Services
-          </p>
+          <div className="mb-6 flex items-center justify-center gap-3">
+            <span className="h-px w-8 bg-zinc-800" />
+
+            <p className="text-xs font-medium uppercase tracking-[0.35em] text-zinc-600">
+              Services
+            </p>
+
+            <span className="h-px w-8 bg-zinc-800" />
+          </div>
 
           <h2 className="text-4xl font-bold tracking-tight md:text-6xl">
             Услуги
@@ -79,7 +85,7 @@ export default function Services() {
         </motion.div>
 
         {/* Cards */}
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-6 lg:grid-cols-3">
           {services.map((service, index) => (
             <motion.div
               key={service.title}
@@ -102,48 +108,113 @@ export default function Services() {
                 transition-all
                 duration-500
                 hover:-translate-y-2
+                md:p-9
                 ${
                   service.popular
-                    ? "border-zinc-500 bg-zinc-900 shadow-2xl shadow-black/30"
+                    ? "border-zinc-500 bg-zinc-900 shadow-2xl shadow-black/40"
                     : "border-zinc-800 bg-zinc-950 hover:border-zinc-600 hover:shadow-2xl hover:shadow-black/30"
                 }
               `}
             >
+              {/* Background number */}
+              <span
+                className="
+                  pointer-events-none
+                  absolute
+                  -right-4
+                  -top-7
+                  text-[130px]
+                  font-bold
+                  leading-none
+                  text-white/[0.025]
+                  transition-all
+                  duration-500
+                  group-hover:text-white/[0.05]
+                "
+              >
+                {service.number}
+              </span>
+
               {/* Popular badge */}
               {service.popular && (
-                <div className="absolute right-6 top-6 rounded-full border border-zinc-700 bg-zinc-800 px-3 py-1 text-xs font-medium text-zinc-200">
+                <div className="absolute right-6 top-6 rounded-full border border-zinc-600 bg-zinc-800 px-3 py-1 text-xs font-medium text-zinc-200">
                   Популярный
                 </div>
               )}
 
               {/* Number */}
-              <div className="mb-10 text-sm tracking-[0.25em] text-zinc-600">
-                {service.number}
+              <div className="relative mb-10 flex items-center gap-4">
+                <div
+                  className="
+                    flex
+                    h-10
+                    w-10
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-zinc-700
+                    bg-zinc-950
+                    text-xs
+                    font-medium
+                    tracking-wider
+                    text-zinc-400
+                    transition-all
+                    duration-500
+                    group-hover:border-zinc-400
+                    group-hover:text-white
+                  "
+                >
+                  {service.number}
+                </div>
+
+                <div className="h-px w-8 bg-zinc-800 transition-all duration-500 group-hover:w-12 group-hover:bg-zinc-600" />
               </div>
 
               {/* Title */}
-              <h3 className="text-2xl font-semibold tracking-tight">
+              <h3 className="relative text-2xl font-semibold tracking-tight md:text-3xl">
                 {service.title}
               </h3>
 
               {/* Price */}
-              <p className="mt-5 text-3xl font-bold tracking-tight">
-                {service.price}
-              </p>
+              <div className="relative mt-5">
+                <span className="text-3xl font-bold tracking-tight md:text-4xl">
+                  {service.price}
+                </span>
+              </div>
 
               {/* Description */}
-              <p className="mt-5 leading-7 text-zinc-400">
+              <p className="relative mt-5 leading-7 text-zinc-400">
                 {service.description}
               </p>
 
               {/* Features */}
-              <div className="mt-8 space-y-4">
+              <div className="relative mt-8 space-y-4">
                 {service.features.map((feature) => (
                   <div
                     key={feature}
                     className="flex items-start gap-3 text-sm text-zinc-300"
                   >
-                    <span className="mt-0.5 text-zinc-500">
+                    <span
+                      className="
+                        mt-0.5
+                        flex
+                        h-5
+                        w-5
+                        shrink-0
+                        items-center
+                        justify-center
+                        rounded-full
+                        border
+                        border-zinc-700
+                        text-[10px]
+                        text-zinc-400
+                        transition-all
+                        duration-300
+                        group-hover:border-zinc-500
+                        group-hover:text-white
+                      "
+                    >
                       ✓
                     </span>
 
@@ -153,7 +224,7 @@ export default function Services() {
               </div>
 
               {/* Time */}
-              <div className="mt-8 border-t border-zinc-800 pt-5">
+              <div className="relative mt-8 border-t border-zinc-800 pt-5">
                 <p className="text-sm text-zinc-500">
                   {service.time}
                 </p>
@@ -163,23 +234,26 @@ export default function Services() {
               <a
                 href="#contact"
                 className="
+                  relative
                   mt-8
-                  block
+                  inline-flex
                   w-full
+                  items-center
+                  justify-center
                   rounded-full
                   border
                   border-zinc-700
                   px-6
-                  py-3
-                  text-center
+                  py-3.5
+                  text-sm
                   font-medium
                   text-white
                   transition-all
                   duration-300
-                  group-hover:border-zinc-500
                   hover:border-white
                   hover:bg-white
                   hover:text-black
+                  active:scale-95
                 "
               >
                 Обсудить проект →
@@ -187,6 +261,19 @@ export default function Services() {
             </motion.div>
           ))}
         </div>
+
+        {/* Bottom note */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="mx-auto mt-8 max-w-2xl text-center text-sm leading-6 text-zinc-600"
+        >
+          Точная стоимость зависит от задач и необходимого
+          функционала. Перед началом работы согласовываем
+          объём проекта и итоговую цену.
+        </motion.p>
       </div>
     </section>
   );

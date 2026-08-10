@@ -6,22 +6,22 @@ const steps = [
   {
     number: "01",
     title: "Обсуждаем задачу",
-    text: "Вы рассказываете, какой сайт нужен и какую задачу он должен решать.",
+    text: "Вы рассказываете о бизнесе, цели сайта и о том, что хотите получить в результате.",
   },
   {
     number: "02",
     title: "Предлагаю решение",
-    text: "Определяем структуру, дизайн, функционал и стоимость проекта.",
+    text: "Продумываю структуру, визуальный стиль, необходимые функции и согласовываю стоимость.",
   },
   {
     number: "03",
     title: "Создаю сайт",
-    text: "Разрабатываю проект, учитывая ваши пожелания и показываю результат.",
+    text: "Разрабатываю сайт, адаптирую его под разные устройства и показываю результат по ходу работы.",
   },
   {
     number: "04",
     title: "Запускаем",
-    text: "Публикую сайт и помогаю с необходимыми настройками после запуска.",
+    text: "Проверяем всё перед запуском, публикуем сайт и при необходимости помогаю с дальнейшими настройками.",
   },
 ];
 
@@ -29,9 +29,9 @@ export default function Process() {
   return (
     <section
       id="process"
-      className="px-6 py-24 md:py-32"
+      className="w-full scroll-mt-24 px-6 py-24 md:py-32"
     >
-      <div className="mx-auto max-w-7xl">
+      <div className="mx-auto max-w-6xl">
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -40,11 +40,11 @@ export default function Process() {
           transition={{ duration: 0.6 }}
           className="mb-16 text-center"
         >
-          <p className="mb-4 text-sm uppercase tracking-[0.3em] text-zinc-500">
+          <p className="text-sm uppercase tracking-[0.3em] text-zinc-600">
             Process
           </p>
 
-          <h2 className="text-4xl font-bold tracking-tight md:text-6xl">
+          <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-6xl">
             Как проходит работа
           </h2>
 
@@ -55,7 +55,22 @@ export default function Process() {
         </motion.div>
 
         {/* Steps */}
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="relative grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          {/* Connecting line */}
+          <div
+            className="
+              pointer-events-none
+              absolute
+              left-[12%]
+              right-[12%]
+              top-12
+              hidden
+              h-px
+              bg-zinc-800
+              lg:block
+            "
+          />
+
           {steps.map((step, index) => (
             <motion.div
               key={step.number}
@@ -68,6 +83,7 @@ export default function Process() {
               }}
               className="
                 group
+                relative
                 rounded-3xl
                 border
                 border-zinc-800
@@ -81,18 +97,44 @@ export default function Process() {
                 hover:shadow-black/30
               "
             >
-              <div className="mb-10 text-sm tracking-[0.25em] text-zinc-600">
-                {step.number}
+              {/* Number */}
+              <div className="relative z-10 mb-10 flex items-center">
+                <div
+                  className="
+                    flex
+                    h-10
+                    w-10
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-zinc-700
+                    bg-zinc-950
+                    text-xs
+                    font-medium
+                    tracking-wider
+                    text-zinc-400
+                    transition-all
+                    duration-500
+                    group-hover:border-zinc-400
+                    group-hover:text-white
+                  "
+                >
+                  {step.number}
+                </div>
               </div>
 
+              {/* Title */}
               <h3 className="text-xl font-semibold tracking-tight">
                 {step.title}
               </h3>
 
+              {/* Description */}
               <p className="mt-4 leading-7 text-zinc-400">
                 {step.text}
               </p>
 
+              {/* Bottom accent */}
               <div
                 className="
                   mt-8
@@ -102,7 +144,7 @@ export default function Process() {
                   transition-all
                   duration-500
                   group-hover:w-20
-                  group-hover:bg-zinc-400
+                  group-hover:bg-zinc-300
                 "
               />
             </motion.div>
