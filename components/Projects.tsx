@@ -52,8 +52,9 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="mx-auto w-full max-w-6xl px-6 py-24 md:py-32"
+      className="mx-auto w-full max-w-7xl px-6 py-24 md:px-10 md:py-32"
     >
+      {/* Heading */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -75,6 +76,7 @@ export default function Projects() {
         </p>
       </motion.div>
 
+      {/* Projects */}
       <div className="grid gap-8 md:grid-cols-2">
         {projects.map((project, index) => (
           <motion.article
@@ -101,6 +103,7 @@ export default function Projects() {
               hover:shadow-black/30
             "
           >
+            {/* Image */}
             <div className="relative aspect-[16/10] overflow-hidden bg-zinc-900">
               <img
                 src={project.image}
@@ -115,16 +118,18 @@ export default function Projects() {
                 "
               />
 
+              {/* Desktop overlay */}
               <div
                 className="
                   absolute
                   inset-0
-                  flex
+                  hidden
                   items-center
                   justify-center
                   bg-black/0
                   transition-all
                   duration-500
+                  sm:flex
                   group-hover:bg-black/45
                 "
               >
@@ -154,8 +159,10 @@ export default function Projects() {
               </div>
             </div>
 
-            <div className="p-8 md:p-10">
-              <div className="mb-5 flex items-center justify-between">
+            {/* Content */}
+            <div className="p-7 md:p-10">
+              {/* Number + category */}
+              <div className="mb-5 flex items-center justify-between gap-4">
                 <span className="text-sm tracking-[0.25em] text-zinc-600">
                   {project.number}
                 </span>
@@ -165,14 +172,17 @@ export default function Projects() {
                 </span>
               </div>
 
+              {/* Title */}
               <h3 className="text-2xl font-semibold tracking-tight md:text-3xl">
                 {project.title}
               </h3>
 
+              {/* Description */}
               <p className="mt-4 leading-7 text-zinc-400">
                 {project.description}
               </p>
 
+              {/* Features */}
               <div className="mt-7">
                 <p className="mb-3 text-sm font-medium text-zinc-300">
                   Что сделано
@@ -184,37 +194,61 @@ export default function Projects() {
                       key={feature}
                       className="flex items-center gap-3 text-sm text-zinc-500"
                     >
-                      <span className="h-1.5 w-1.5 rounded-full bg-zinc-600" />
+                      <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-zinc-600" />
                       {feature}
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <a
-                href="#contact"
-                className="
-                  mt-8
-                  inline-flex
-                  items-center
-                  rounded-full
-                  border
-                  border-zinc-700
-                  px-6
-                  py-3
-                  text-sm
-                  font-medium
-                  text-white
-                  transition-all
-                  duration-300
-                  hover:border-white
-                  hover:bg-white
-                  hover:text-black
-                  active:scale-95
-                "
-              >
-                Обсудить похожий проект →
-              </a>
+              {/* Buttons */}
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Link
+                  href={project.href}
+                  className="
+                    inline-flex
+                    items-center
+                    rounded-full
+                    bg-white
+                    px-6
+                    py-3
+                    text-sm
+                    font-medium
+                    text-black
+                    transition-all
+                    duration-300
+                    hover:scale-105
+                    hover:bg-zinc-200
+                    active:scale-95
+                  "
+                >
+                  Посмотреть кейс →
+                </Link>
+
+                <a
+                  href="#contact"
+                  className="
+                    inline-flex
+                    items-center
+                    rounded-full
+                    border
+                    border-zinc-700
+                    px-6
+                    py-3
+                    text-sm
+                    font-medium
+                    text-white
+                    transition-all
+                    duration-300
+                    hover:border-white
+                    hover:bg-white
+                    hover:text-black
+                    active:scale-95
+                  "
+                >
+                  Обсудить проект
+                </a>
+              </div>
             </div>
           </motion.article>
         ))}
