@@ -73,12 +73,19 @@ export default function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="mt-12 flex flex-col gap-3 border-t border-zinc-900 pt-6 text-xs text-zinc-600 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-4 border-t border-zinc-900 pt-6 text-xs text-zinc-600 sm:flex-row sm:items-center sm:justify-between">
           <p>© 2026 AI Web Studio. Все права защищены.</p>
 
-          <p>
-            Создано с помощью AI + кода
-          </p>
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-5">
+            <Link
+              href="/privacy"
+              className="transition-colors hover:text-zinc-300"
+            >
+              Политика конфиденциальности
+            </Link>
+
+            <p>Создано с помощью AI + кода</p>
+          </div>
         </div>
       </div>
     </footer>
