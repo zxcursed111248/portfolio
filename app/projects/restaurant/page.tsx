@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
 
@@ -69,11 +70,14 @@ export default function RestaurantProject() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mt-16 overflow-hidden rounded-3xl border border-zinc-800 shadow-2xl shadow-black/50"
           >
-            <img
-              src="/images/restaurant.jpg"
-              alt="Концепт сайта ресторана"
-              className="w-full object-cover"
-            />
+            <Image
+  src="/images/restaurant.jpg"
+  alt="Концепт сайта ресторана"
+  width={1600}
+  height={1000}
+  priority
+  className="w-full object-cover"
+/>
           </motion.div>
         </div>
       </section>
@@ -176,11 +180,13 @@ export default function RestaurantProject() {
           </div>
 
           <div className="overflow-hidden rounded-3xl border border-zinc-800">
-            <img
-              src="/images/restaurant.jpg"
-              alt="Визуальная концепция сайта ресторана"
-              className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-            />
+          <Image
+  src="/images/restaurant.jpg"
+  alt="Визуальная концепция сайта ресторана"
+  width={1600}
+  height={1000}
+  className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+/>
           </div>
         </div>
       </section>
