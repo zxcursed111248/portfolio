@@ -56,17 +56,11 @@ export default function Home() {
 
       {/* Main content */}
       <div className="relative z-10 flex w-full flex-col items-center">
-        <Hero />
+      <Hero />
 
-        <Services />
+<Services />
 
-        <Projects />
-
-        <WhyMe />
-        
-        <Process />
-
-        <Contact />
+<Projects />
       </div>
 
       {/* Footer */}
