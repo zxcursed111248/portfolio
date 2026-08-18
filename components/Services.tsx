@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 const services = [
   {
     number: "01",
@@ -11,7 +7,7 @@ const services = [
       "Для рекламы, услуги или нового продукта. Страница быстро объясняет предложение бизнеса и ведёт посетителя к заявке.",
     features: [
       "Адаптивный дизайн",
-      "Современный интерфейс и анимации",
+      "Современный интерфейс",
       "Форма заявки",
       "Подготовка к публикации",
     ],
@@ -22,7 +18,7 @@ const services = [
     title: "Сайт для бизнеса",
     price: "от 12 000 ₽",
     description:
-      "Для компании, которая хочет профессионально представить себя в интернете. Сайт с услугами, преимуществами, проектами и удобным способом связаться.",
+      "Для компании, которая хочет профессионально представить себя в интернете. Сайт с услугами, преимуществами, проектами и удобным способом связи.",
     features: [
       "Несколько страниц",
       "Адаптация под телефон",
@@ -55,14 +51,9 @@ export default function Services() {
       className="w-full scroll-mt-24 px-6 py-24 md:py-32"
     >
       <div className="mx-auto max-w-6xl">
+
         {/* Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.4 }}
-          className="mb-16 text-center"
-        >
+        <div className="mb-16 text-center">
           <div className="mb-6 flex items-center justify-center gap-3">
             <span className="h-px w-8 bg-zinc-800" />
 
@@ -73,7 +64,7 @@ export default function Services() {
             <span className="h-px w-8 bg-zinc-800" />
           </div>
 
-          <h2 className="text-4xl font-bold tracking-tight md:text-6xl">
+          <h2 className="text-4xl font-bold tracking-tight text-white md:text-6xl">
             Услуги
           </h2>
 
@@ -82,42 +73,33 @@ export default function Services() {
             от простой посадочной страницы до полноценного
             интернет-магазина.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Cards */}
+        {/* Services cards */}
         <div className="grid gap-6 lg:grid-cols-3">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.4,
-                delay: index * 0.05,
-              }}
+          {services.map((service) => (
+            <article
+              key={service.number}
               className={`
-                group
                 relative
                 flex
+                min-h-[560px]
                 flex-col
                 overflow-hidden
                 rounded-3xl
                 border
                 p-8
-                transition-all
-                duration-300
-                hover:-translate-y-1
                 md:p-9
                 ${
                   service.popular
                     ? "border-zinc-500 bg-zinc-900"
-                    : "border-zinc-800 bg-zinc-950 hover:border-zinc-600"
+                    : "border-zinc-800 bg-zinc-950"
                 }
               `}
             >
               {/* Background number */}
               <span
+                aria-hidden="true"
                 className="
                   pointer-events-none
                   absolute
@@ -132,9 +114,24 @@ export default function Services() {
                 {service.number}
               </span>
 
-              {/* Popular badge */}
+              {/* Popular */}
               {service.popular && (
-                <div className="absolute right-6 top-6 rounded-full border border-zinc-600 bg-zinc-800 px-3 py-1 text-xs font-medium text-zinc-200">
+                <div
+                  className="
+                    absolute
+                    right-6
+                    top-6
+                    rounded-full
+                    border
+                    border-zinc-600
+                    bg-zinc-800
+                    px-3
+                    py-1
+                    text-xs
+                    font-medium
+                    text-zinc-200
+                  "
+                >
                   Популярный
                 </div>
               )}
@@ -165,16 +162,14 @@ export default function Services() {
               </div>
 
               {/* Title */}
-              <h3 className="relative text-2xl font-semibold tracking-tight md:text-3xl">
+              <h3 className="relative text-2xl font-semibold tracking-tight text-white md:text-3xl">
                 {service.title}
               </h3>
 
               {/* Price */}
-              <div className="relative mt-5">
-                <span className="text-3xl font-bold tracking-tight md:text-4xl">
-                  {service.price}
-                </span>
-              </div>
+              <p className="relative mt-5 text-3xl font-bold tracking-tight text-white md:text-4xl">
+                {service.price}
+              </p>
 
               {/* Description */}
               <p className="relative mt-5 leading-7 text-zinc-400">
@@ -183,6 +178,10 @@ export default function Services() {
 
               {/* Features */}
               <div className="relative mt-8 space-y-4">
+                <p className="text-xs font-medium uppercase tracking-[0.2em] text-zinc-600">
+                  Включает
+                </p>
+
                 {service.features.map((feature) => (
                   <div
                     key={feature}
@@ -212,57 +211,52 @@ export default function Services() {
                 ))}
               </div>
 
-              {/* Time */}
-              <div className="relative mt-8 border-t border-zinc-800 pt-5">
-                <p className="text-sm text-zinc-500">
-                  {service.time}
-                </p>
-              </div>
+              {/* Bottom */}
+              <div className="relative mt-auto pt-10">
+                <div className="border-t border-zinc-800 pt-5">
+                  <p className="text-sm text-zinc-500">
+                    {service.time}
+                  </p>
+                </div>
 
-              {/* Button */}
-              <a
-                href="#contact"
-                className="
-                  relative
-                  mt-8
-                  inline-flex
-                  w-full
-                  items-center
-                  justify-center
-                  rounded-full
-                  border
-                  border-zinc-700
-                  px-6
-                  py-3.5
-                  text-sm
-                  font-medium
-                  text-white
-                  transition-all
-                  duration-300
-                  hover:border-white
-                  hover:bg-white
-                  hover:text-black
-                  active:scale-95
-                "
-              >
-                Обсудить проект →
-              </a>
-            </motion.div>
+                {/* Button */}
+                <a
+                  href="#contact"
+                  className="
+                    mt-6
+                    flex
+                    w-full
+                    items-center
+                    justify-center
+                    rounded-full
+                    border
+                    border-zinc-700
+                    px-6
+                    py-3.5
+                    text-sm
+                    font-medium
+                    text-white
+                    transition-colors
+                    duration-300
+                    hover:border-white
+                    hover:bg-white
+                    hover:text-black
+                  "
+                >
+                  Обсудить проект →
+                </a>
+              </div>
+            </article>
           ))}
         </div>
 
         {/* Bottom note */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mx-auto mt-8 max-w-2xl text-center text-sm leading-6 text-zinc-600"
-        >
+        <p className="mx-auto mt-8 max-w-2xl text-center text-sm leading-6 text-zinc-600">
           Точная стоимость зависит от задач и необходимого
           функционала. Перед началом работы согласовываем
           объём проекта и итоговую цену.
-        </motion.p>
+        </p>
+
       </div>
     </section>
   );
