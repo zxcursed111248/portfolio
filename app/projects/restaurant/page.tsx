@@ -57,22 +57,23 @@ export default function RestaurantProject() {
               заведения, знакомит посетителя с меню и помогает
               превратить интерес в реального клиента.
             </p>
-            </FadeUp>
+          </FadeUp>
 
           {/* Main image */}
           <FadeUp
-  delay={0.2}
-  className="mt-16 overflow-hidden rounded-3xl border border-zinc-800 shadow-2xl shadow-black/50"
->
+            delay={0.2}
+            className="mt-16 overflow-hidden rounded-3xl border border-zinc-800 shadow-2xl shadow-black/50"
+          >
             <Image
-  src="/images/restaurant.jpg"
-  alt="Концепт сайта ресторана"
-  width={1600}
-  height={1000}
-  priority
-  className="w-full object-cover"
-/>
-</FadeUp>
+              src="/images/restaurant.jpg"
+              alt="Концепт сайта ресторана"
+              width={1600}
+              height={1000}
+              priority
+              sizes="(max-width: 768px) 100vw, 1152px"
+              className="h-auto w-full object-cover"
+            />
+          </FadeUp>
         </div>
       </section>
 
@@ -129,9 +130,9 @@ export default function RestaurantProject() {
           <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-800 md:grid-cols-2">
             {features.map((feature) => (
               <FadeUpScroll
-              key={feature.number}
-              className="bg-black p-8 md:p-10"
-            >
+                key={feature.number}
+                className="bg-black p-8 md:p-10"
+              >
                 <span className="text-sm tracking-[0.25em] text-zinc-600">
                   {feature.number}
                 </span>
@@ -143,7 +144,7 @@ export default function RestaurantProject() {
                 <p className="mt-4 leading-7 text-zinc-500">
                   {feature.text}
                 </p>
-                </FadeUpScroll>
+              </FadeUpScroll>
             ))}
           </div>
         </div>
@@ -169,15 +170,17 @@ export default function RestaurantProject() {
             </p>
           </div>
 
+          {/* Secondary image */}
           <div className="overflow-hidden rounded-3xl border border-zinc-800">
-          <Image
-  src="/images/restaurant.jpg"
-  alt="Визуальная концепция сайта ресторана"
-  width={1600}
-  height={1000}
-  className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-/>
-
+            <Image
+              src="/images/restaurant.jpg"
+              alt="Визуальная концепция сайта ресторана"
+              width={1600}
+              height={1000}
+              loading="lazy"
+              sizes="(max-width: 768px) 100vw, 576px"
+              className="h-auto w-full object-cover transition-transform duration-700 hover:scale-105"
+            />
           </div>
         </div>
       </section>
