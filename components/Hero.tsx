@@ -5,7 +5,7 @@ export default function Hero() {
       className="relative w-full scroll-mt-24 overflow-hidden pt-28 md:pt-36"
     >
       {/* Background glow */}
-      <div className="pointer-events-none absolute left-1/2 top-24 h-96 w-96 -translate-x-1/2 rounded-full bg-white/[0.03] blur-3xl" />
+      <div className="pointer-events-none absolute left-1/2 top-24 h-64 w-64 -translate-x-1/2 rounded-full bg-white/[0.02] blur-2xl" />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 text-center">
         {/* Label */}

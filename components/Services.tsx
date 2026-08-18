@@ -57,10 +57,10 @@ export default function Services() {
       <div className="mx-auto max-w-6xl">
         {/* Heading */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="mb-16 text-center"
         >
           <div className="mb-6 flex items-center justify-center gap-3">
@@ -89,12 +89,12 @@ export default function Services() {
           {services.map((service, index) => (
             <motion.div
               key={service.title}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
-                duration: 0.6,
-                delay: index * 0.12,
+                duration: 0.4,
+                delay: index * 0.05,
               }}
               className={`
                 group
@@ -106,13 +106,13 @@ export default function Services() {
                 border
                 p-8
                 transition-all
-                duration-500
-                hover:-translate-y-2
+                duration-300
+                hover:-translate-y-1
                 md:p-9
                 ${
                   service.popular
-                    ? "border-zinc-500 bg-zinc-900 shadow-2xl shadow-black/40"
-                    : "border-zinc-800 bg-zinc-950 hover:border-zinc-600 hover:shadow-2xl hover:shadow-black/30"
+                    ? "border-zinc-500 bg-zinc-900"
+                    : "border-zinc-800 bg-zinc-950 hover:border-zinc-600"
                 }
               `}
             >
@@ -127,9 +127,6 @@ export default function Services() {
                   font-bold
                   leading-none
                   text-white/[0.025]
-                  transition-all
-                  duration-500
-                  group-hover:text-white/[0.05]
                 "
               >
                 {service.number}
@@ -159,16 +156,12 @@ export default function Services() {
                     font-medium
                     tracking-wider
                     text-zinc-400
-                    transition-all
-                    duration-500
-                    group-hover:border-zinc-400
-                    group-hover:text-white
                   "
                 >
                   {service.number}
                 </div>
 
-                <div className="h-px w-8 bg-zinc-800 transition-all duration-500 group-hover:w-12 group-hover:bg-zinc-600" />
+                <div className="h-px w-8 bg-zinc-800" />
               </div>
 
               {/* Title */}
@@ -209,10 +202,6 @@ export default function Services() {
                         border-zinc-700
                         text-[10px]
                         text-zinc-400
-                        transition-all
-                        duration-300
-                        group-hover:border-zinc-500
-                        group-hover:text-white
                       "
                     >
                       ✓
@@ -267,7 +256,7 @@ export default function Services() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{ duration: 0.5 }}
           className="mx-auto mt-8 max-w-2xl text-center text-sm leading-6 text-zinc-600"
         >
           Точная стоимость зависит от задач и необходимого

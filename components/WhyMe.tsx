@@ -34,10 +34,10 @@ export default function WhyMe() {
       <div className="mx-auto max-w-6xl">
         {/* Heading */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+  initial={{ opacity: 0 }}
+  whileInView={{ opacity: 1 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.4 }}
           className="mb-16 text-center"
         >
           <div className="mb-6 flex items-center justify-center gap-3">
@@ -64,14 +64,14 @@ export default function WhyMe() {
         <div className="grid gap-6 md:grid-cols-2">
           {items.map((item, index) => (
             <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                duration: 0.6,
-                delay: index * 0.12,
-              }}
+            key={item.title}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{
+              duration: 0.4,
+              delay: index * 0.08,
+            }}
               className="
                 group
                 relative
