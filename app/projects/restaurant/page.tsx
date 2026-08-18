@@ -1,8 +1,9 @@
-"use client";
-
 import Image from "next/image";
-import { motion } from "framer-motion";
 import Link from "next/link";
+import {
+  FadeUp,
+  FadeUpScroll,
+} from "./RestaurantAnimations";
 
 const features = [
   {
@@ -42,12 +43,7 @@ export default function RestaurantProject() {
             ← Вернуться к работам
           </Link>
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            className="mt-16 max-w-4xl"
-          >
+          <FadeUp className="mt-16 max-w-4xl">
             <p className="mb-5 text-sm uppercase tracking-[0.3em] text-zinc-500">
               01 / Restaurant
             </p>
@@ -61,15 +57,13 @@ export default function RestaurantProject() {
               заведения, знакомит посетителя с меню и помогает
               превратить интерес в реального клиента.
             </p>
-          </motion.div>
+            </FadeUp>
 
           {/* Main image */}
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mt-16 overflow-hidden rounded-3xl border border-zinc-800 shadow-2xl shadow-black/50"
-          >
+          <FadeUp
+  delay={0.2}
+  className="mt-16 overflow-hidden rounded-3xl border border-zinc-800 shadow-2xl shadow-black/50"
+>
             <Image
   src="/images/restaurant.jpg"
   alt="Концепт сайта ресторана"
@@ -78,7 +72,7 @@ export default function RestaurantProject() {
   priority
   className="w-full object-cover"
 />
-          </motion.div>
+</FadeUp>
         </div>
       </section>
 
@@ -134,14 +128,10 @@ export default function RestaurantProject() {
           {/* Features */}
           <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-zinc-800 bg-zinc-800 md:grid-cols-2">
             {features.map((feature) => (
-              <motion.div
-                key={feature.number}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
-                className="bg-black p-8 md:p-10"
-              >
+              <FadeUpScroll
+              key={feature.number}
+              className="bg-black p-8 md:p-10"
+            >
                 <span className="text-sm tracking-[0.25em] text-zinc-600">
                   {feature.number}
                 </span>
@@ -153,7 +143,7 @@ export default function RestaurantProject() {
                 <p className="mt-4 leading-7 text-zinc-500">
                   {feature.text}
                 </p>
-              </motion.div>
+                </FadeUpScroll>
             ))}
           </div>
         </div>
@@ -187,6 +177,7 @@ export default function RestaurantProject() {
   height={1000}
   className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
 />
+
           </div>
         </div>
       </section>

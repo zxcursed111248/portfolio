@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 export default function Hero() {
   return (
     <section
@@ -13,12 +9,7 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 text-center">
         {/* Label */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-8 flex items-center justify-center gap-3"
-        >
+        <div className="mb-8 flex items-center justify-center gap-3">
           <span className="h-px w-10 bg-zinc-700" />
 
           <p className="text-xs font-medium uppercase tracking-[0.35em] text-zinc-500 sm:text-sm">
@@ -26,13 +17,10 @@ export default function Hero() {
           </p>
 
           <span className="h-px w-10 bg-zinc-700" />
-        </motion.div>
+        </div>
 
         {/* Main heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+        <h1
           className="
             mx-auto
             max-w-5xl
@@ -52,13 +40,10 @@ export default function Hero() {
           <span className="bg-gradient-to-r from-white via-zinc-300 to-zinc-500 bg-clip-text text-transparent">
             помогают бизнесу расти
           </span>
-        </motion.h1>
+        </h1>
 
         {/* Description */}
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.1 }}
+        <p
           className="
             mx-auto
             mt-9
@@ -72,15 +57,10 @@ export default function Hero() {
           Современные сайты и AI-решения для бизнеса —
           <br className="hidden sm:block" />
           от идеи до готового продукта.
-        </motion.p>
+        </p>
 
         {/* Price */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-7 flex items-center justify-center gap-2"
-        >
+        <div className="mt-7 flex items-center justify-center gap-2">
           <span className="text-sm text-zinc-500">
             Сайт для бизнеса
           </span>
@@ -88,13 +68,10 @@ export default function Hero() {
           <span className="text-sm font-semibold text-white">
             от 7 000 ₽
           </span>
-        </motion.div>
+        </div>
 
         {/* Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.3 }}
+        <div
           className="
             mt-11
             flex
@@ -130,6 +107,7 @@ export default function Hero() {
             "
           >
             Обсудить проект
+
             <span className="ml-2 transition-transform duration-300 group-hover:translate-x-1">
               →
             </span>
@@ -161,13 +139,10 @@ export default function Hero() {
           >
             Посмотреть работы
           </a>
-        </motion.div>
+        </div>
 
         {/* Trust text */}
-        <motion.p
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.1, delay: 0.5 }}
+        <p
           className="
             mx-auto
             mt-8
@@ -179,13 +154,10 @@ export default function Hero() {
         >
           Обсудим задачу, предложу решение и назову точную
           стоимость до начала работы.
-        </motion.p>
+        </p>
 
         {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 0.8 }}
+        <div
           className="
             mt-16
             hidden
@@ -200,18 +172,9 @@ export default function Hero() {
             Scroll
           </span>
 
-          <motion.div
-            animate={{ y: [0, 7, 0] }}
-            transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            className="h-9 w-px bg-zinc-800"
-          />
-        </motion.div>
+          <div className="h-9 w-px bg-zinc-800" />
+        </div>
       </div>
     </section>
   );
 }
-
