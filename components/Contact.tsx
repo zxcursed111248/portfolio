@@ -8,10 +8,14 @@ export default function Contact() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [status, setStatus] = useState("");
+  const [isSending, setIsSending] = useState(false);
 
-  async function handleSubmit(event: FormEvent) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
+    if (isSending) return;
+
+    setIsSending(true);
     setStatus("Отправляем...");
 
     try {
@@ -40,20 +44,22 @@ export default function Contact() {
       setStatus("Заявка успешно отправлена! Я свяжусь с вами.");
     } catch {
       setStatus("Произошла ошибка. Попробуйте ещё раз.");
+    } finally {
+      setIsSending(false);
     }
   }
 
   return (
     <section
       id="contact"
-      className="px-6 py-24 md:py-32"
+      className="w-full scroll-mt-24 px-6 py-24 md:py-32"
     >
       <div className="mx-auto max-w-4xl">
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="
             relative
             overflow-hidden
@@ -61,16 +67,29 @@ export default function Contact() {
             border
             border-zinc-800
             bg-zinc-950
-            p-8
+            p-7
             md:p-12
           "
         >
           {/* Background glow */}
-          <div className="pointer-events-none absolute left-1/2 top-0 h-64 w-64 -translate-x-1/2 rounded-full bg-blue-500/5 blur-[100px]" />
+          <div
+            className="
+              pointer-events-none
+              absolute
+              left-1/2
+              top-0
+              h-64
+              w-64
+              -translate-x-1/2
+              rounded-full
+              bg-blue-500/5
+              blur-[100px]
+            "
+          />
 
           {/* Heading */}
           <div className="relative text-center">
-            <p className="mb-4 text-sm uppercase tracking-[0.3em] text-zinc-500">
+            <p className="mb-4 text-xs font-medium uppercase tracking-[0.35em] text-zinc-600">
               Contact
             </p>
 
@@ -94,15 +113,20 @@ export default function Contact() {
           >
             {/* Name */}
             <div>
-              <label className="mb-2 block text-sm text-zinc-400">
+              <label
+                htmlFor="contact-name"
+                className="mb-2 block text-sm text-zinc-400"
+              >
                 Ваше имя
               </label>
 
               <input
+                id="contact-name"
                 type="text"
                 value={name}
                 onChange={(event) => setName(event.target.value)}
                 placeholder="Иван"
+                autoComplete="name"
                 required
                 className="
                   w-full
@@ -127,15 +151,20 @@ export default function Contact() {
 
             {/* Email */}
             <div>
-              <label className="mb-2 block text-sm text-zinc-400">
+              <label
+                htmlFor="contact-email"
+                className="mb-2 block text-sm text-zinc-400"
+              >
                 Email
               </label>
 
               <input
+                id="contact-email"
                 type="email"
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
                 placeholder="you@example.com"
+                autoComplete="email"
                 required
                 className="
                   w-full
@@ -160,11 +189,15 @@ export default function Contact() {
 
             {/* Message */}
             <div>
-              <label className="mb-2 block text-sm text-zinc-400">
+              <label
+                htmlFor="contact-message"
+                className="mb-2 block text-sm text-zinc-400"
+              >
                 Расскажите о проекте
               </label>
 
               <textarea
+                id="contact-message"
                 rows={5}
                 value={message}
                 onChange={(event) => setMessage(event.target.value)}
@@ -195,6 +228,7 @@ export default function Contact() {
             {/* Submit */}
             <button
               type="submit"
+              disabled={isSending}
               className="
                 w-full
                 rounded-full
@@ -205,14 +239,15 @@ export default function Contact() {
                 text-black
                 transition-all
                 duration-300
-                hover:scale-[1.02]
                 hover:bg-zinc-200
                 hover:shadow-xl
                 hover:shadow-white/10
                 active:scale-[0.98]
+                disabled:cursor-not-allowed
+                disabled:opacity-60
               "
             >
-              Отправить заявку →
+              {isSending ? "Отправляем..." : "Отправить заявку →"}
             </button>
 
             {/* Status */}
@@ -220,7 +255,7 @@ export default function Contact() {
               <motion.p
                 initial={{ opacity: 0, y: 5 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-center text-sm text-zinc-400"
+                className="text-center text-sm leading-6 text-zinc-400"
               >
                 {status}
               </motion.p>

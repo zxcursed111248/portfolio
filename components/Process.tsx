@@ -11,7 +11,7 @@ const steps = [
   {
     number: "02",
     title: "Предлагаю решение",
-    text: "Продумываю структуру, визуальный стиль, необходимые функции и согласовываю стоимость.",
+    text: "Продумываю структуру, визуальный стиль и необходимые функции. После этого согласовываем стоимость.",
   },
   {
     number: "03",
@@ -21,7 +21,7 @@ const steps = [
   {
     number: "04",
     title: "Запускаем",
-    text: "Проверяем всё перед запуском, публикуем сайт и при необходимости помогаю с дальнейшими настройками.",
+    text: "Проверяем всё перед публикацией, запускаем сайт и при необходимости помогаю с дальнейшими настройками.",
   },
 ];
 
@@ -34,17 +34,23 @@ export default function Process() {
       <div className="mx-auto max-w-6xl">
         {/* Heading */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           className="mb-16 text-center"
         >
-          <p className="text-sm uppercase tracking-[0.3em] text-zinc-600">
-            Process
-          </p>
+          <div className="mb-6 flex items-center justify-center gap-3">
+            <span className="h-px w-8 bg-zinc-800" />
 
-          <h2 className="mt-4 text-4xl font-bold tracking-tight md:text-6xl">
+            <p className="text-xs font-medium uppercase tracking-[0.35em] text-zinc-600">
+              Process
+            </p>
+
+            <span className="h-px w-8 bg-zinc-800" />
+          </div>
+
+          <h2 className="text-4xl font-bold tracking-tight md:text-6xl">
             Как проходит работа
           </h2>
 
@@ -74,12 +80,12 @@ export default function Process() {
           {steps.map((step, index) => (
             <motion.div
               key={step.number}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{
-                duration: 0.6,
-                delay: index * 0.12,
+                duration: 0.4,
+                delay: index * 0.05,
               }}
               className="
                 group
@@ -90,11 +96,9 @@ export default function Process() {
                 bg-zinc-950
                 p-8
                 transition-all
-                duration-500
-                hover:-translate-y-2
+                duration-300
+                hover:-translate-y-1
                 hover:border-zinc-600
-                hover:shadow-2xl
-                hover:shadow-black/30
               "
             >
               {/* Number */}
@@ -114,8 +118,8 @@ export default function Process() {
                     font-medium
                     tracking-wider
                     text-zinc-400
-                    transition-all
-                    duration-500
+                    transition-colors
+                    duration-300
                     group-hover:border-zinc-400
                     group-hover:text-white
                   "
@@ -142,7 +146,7 @@ export default function Process() {
                   w-10
                   bg-zinc-700
                   transition-all
-                  duration-500
+                  duration-300
                   group-hover:w-20
                   group-hover:bg-zinc-300
                 "

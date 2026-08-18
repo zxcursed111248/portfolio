@@ -6,22 +6,22 @@ const items = [
   {
     number: "01",
     title: "Быстрый запуск",
-    text: "Помогаю пройти путь от идеи до готового сайта без лишней бюрократии и затянутых процессов.",
+    text: "От первой идеи до готового сайта без лишней бюрократии и затянутых процессов.",
   },
   {
     number: "02",
     title: "Современный дизайн",
-    text: "Создаю аккуратный и понятный интерфейс, который одинаково хорошо выглядит на компьютере, планшете и телефоне.",
+    text: "Аккуратный и понятный интерфейс, который хорошо выглядит на компьютере, планшете и телефоне.",
   },
   {
     number: "03",
     title: "AI + разработка",
-    text: "Использую современные AI-инструменты, чтобы ускорять разработку, быстрее находить решения и больше внимания уделять качеству.",
+    text: "Использую современные AI-инструменты, чтобы ускорять разработку и больше внимания уделять качеству результата.",
   },
   {
     number: "04",
     title: "Поддержка после запуска",
-    text: "После публикации сайта остаюсь на связи и помогаю с необходимыми изменениями, настройками и доработками.",
+    text: "После публикации остаюсь на связи и помогаю с необходимыми изменениями и доработками.",
   },
 ];
 
@@ -34,10 +34,10 @@ export default function WhyMe() {
       <div className="mx-auto max-w-6xl">
         {/* Heading */}
         <motion.div
-  initial={{ opacity: 0 }}
-  whileInView={{ opacity: 1 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.4 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
           className="mb-16 text-center"
         >
           <div className="mb-6 flex items-center justify-center gap-3">
@@ -55,8 +55,8 @@ export default function WhyMe() {
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-zinc-400 md:text-lg">
-            Не просто создаю сайт, а помогаю превратить идею
-            в современное онлайн-представление бизнеса.
+            Помогаю превратить идею в современный сайт,
+            который понятно представляет бизнес в интернете.
           </p>
         </motion.div>
 
@@ -64,14 +64,14 @@ export default function WhyMe() {
         <div className="grid gap-6 md:grid-cols-2">
           {items.map((item, index) => (
             <motion.div
-            key={item.title}
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{
-              duration: 0.4,
-              delay: index * 0.08,
-            }}
+              key={item.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.4,
+                delay: index * 0.05,
+              }}
               className="
                 group
                 relative
@@ -82,15 +82,13 @@ export default function WhyMe() {
                 bg-zinc-950
                 p-8
                 transition-all
-                duration-500
-                hover:-translate-y-2
+                duration-300
+                hover:-translate-y-1
                 hover:border-zinc-600
-                hover:shadow-2xl
-                hover:shadow-black/30
                 md:p-10
               "
             >
-              {/* Large background number */}
+              {/* Background number */}
               <span
                 className="
                   pointer-events-none
@@ -101,9 +99,6 @@ export default function WhyMe() {
                   font-bold
                   leading-none
                   text-white/[0.025]
-                  transition-all
-                  duration-500
-                  group-hover:text-white/[0.05]
                 "
               >
                 {item.number}
@@ -126,8 +121,8 @@ export default function WhyMe() {
                     font-medium
                     tracking-wider
                     text-zinc-400
-                    transition-all
-                    duration-500
+                    transition-colors
+                    duration-300
                     group-hover:border-zinc-400
                     group-hover:text-white
                   "
@@ -135,7 +130,7 @@ export default function WhyMe() {
                   {item.number}
                 </div>
 
-                <div className="h-px w-8 bg-zinc-800 transition-all duration-500 group-hover:w-12 group-hover:bg-zinc-600" />
+                <div className="h-px w-8 bg-zinc-800 transition-all duration-300 group-hover:w-12 group-hover:bg-zinc-600" />
               </div>
 
               {/* Title */}
@@ -148,7 +143,7 @@ export default function WhyMe() {
                 {item.text}
               </p>
 
-              {/* Bottom line */}
+              {/* Accent */}
               <div
                 className="
                   relative
@@ -157,7 +152,7 @@ export default function WhyMe() {
                   w-12
                   bg-zinc-700
                   transition-all
-                  duration-500
+                  duration-300
                   group-hover:w-24
                   group-hover:bg-zinc-300
                 "

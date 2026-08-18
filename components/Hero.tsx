@@ -5,7 +5,7 @@ export default function Hero() {
       className="relative w-full scroll-mt-24 overflow-hidden pt-28 md:pt-36"
     >
       {/* Background glow */}
-      <div className="pointer-events-none absolute left-1/2 top-24 h-64 w-64 -translate-x-1/2 rounded-full bg-white/[0.02] blur-2xl" />
+      <div className="pointer-events-none absolute left-1/2 top-24 h-96 w-96 -translate-x-1/2 rounded-full bg-white/[0.03] blur-3xl" />
 
       <div className="relative z-10 mx-auto w-full max-w-6xl px-6 text-center">
         {/* Label */}
@@ -34,11 +34,10 @@ export default function Hero() {
             lg:text-8xl
           "
         >
-          Создаю сайты,
+          Современные сайты
           <br />
-          которые{" "}
           <span className="bg-gradient-to-r from-white via-zinc-300 to-zinc-500 bg-clip-text text-transparent">
-            помогают бизнесу расти
+            для роста бизнеса
           </span>
         </h1>
 
@@ -54,15 +53,15 @@ export default function Hero() {
             md:text-lg
           "
         >
-          Современные сайты и AI-решения для бизнеса —
+          Создаю сайты, которые помогают бизнесу выглядеть
           <br className="hidden sm:block" />
-          от идеи до готового продукта.
+          профессионально и привлекать новых клиентов.
         </p>
 
         {/* Price */}
-        <div className="mt-7 flex items-center justify-center gap-2">
+        <div className="mt-7 flex flex-wrap items-center justify-center gap-x-2 gap-y-1">
           <span className="text-sm text-zinc-500">
-            Сайт для бизнеса
+            Разработка сайта
           </span>
 
           <span className="text-sm font-semibold text-white">
@@ -141,20 +140,31 @@ export default function Hero() {
           </a>
         </div>
 
-        {/* Trust text */}
-        <p
+        {/* Trust */}
+        <div
           className="
             mx-auto
-            mt-8
+            mt-9
+            flex
             max-w-xl
+            flex-col
+            items-center
+            gap-2
             text-sm
-            leading-6
             text-zinc-600
+            sm:flex-row
+            sm:justify-center
+            sm:gap-4
           "
         >
-          Обсудим задачу, предложу решение и назову точную
-          стоимость до начала работы.
-        </p>
+          <span>✓ Точная стоимость до начала работы</span>
+
+          <span className="hidden text-zinc-800 sm:inline">
+            •
+          </span>
+
+          <span>✓ Адаптация под телефон</span>
+        </div>
 
         {/* Scroll indicator */}
         <div

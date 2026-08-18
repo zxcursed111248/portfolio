@@ -9,12 +9,12 @@ const projects = [
     category: "RESTAURANT",
     title: "Сайт ресторана",
     description:
-      "Современный сайт ресторана с акцентом на атмосферу заведения, меню и удобную связь с клиентами.",
+      "Атмосферный сайт для ресторана с акцентом на визуальную подачу, меню и удобное взаимодействие с посетителями.",
     image: "/images/restaurant.jpg",
     href: "/projects/restaurant",
     features: [
       "Адаптивный дизайн",
-      "Меню и информация о заведении",
+      "Презентация меню и заведения",
       "Форма заявки",
     ],
   },
@@ -23,7 +23,7 @@ const projects = [
     category: "E-COMMERCE",
     title: "Интернет-магазин",
     description:
-      "Современная концепция интернет-магазина с удобной подачей товаров и акцентом на простой пользовательский путь.",
+      "Современный интернет-магазин с понятной структурой, удобной навигацией и акцентом на презентацию товаров.",
     image: "/images/shop.jpg",
     href: "/projects/shop",
     features: [
@@ -72,8 +72,9 @@ export default function Projects() {
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-zinc-400 md:text-lg">
-            Примеры сайтов для разных задач бизнеса — от презентации
-            компании и услуг до ресторанов и онлайн-продаж.
+            Примеры сайтов, которые можно адаптировать
+            под разные задачи бизнеса — от презентации
+            компании до онлайн-продаж.
           </p>
         </div>
 
@@ -175,7 +176,7 @@ export default function Projects() {
                 {/* Features */}
                 <div>
                   <p className="mb-4 text-xs font-medium uppercase tracking-[0.2em] text-zinc-600">
-                    Что сделано
+                    Что входит
                   </p>
 
                   <ul className="space-y-3">
@@ -184,7 +185,9 @@ export default function Projects() {
                         key={feature}
                         className="flex items-center gap-3 text-sm text-zinc-400"
                       >
-                        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-zinc-600" />
+                        <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full border border-zinc-800 text-[10px] text-zinc-500">
+                          ✓
+                        </span>
 
                         {feature}
                       </li>
@@ -193,12 +196,13 @@ export default function Projects() {
                 </div>
 
                 {/* Buttons */}
-                <div className="mt-8 flex flex-wrap gap-3">
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                   <Link
                     href={project.href}
                     className="
                       inline-flex
                       items-center
+                      justify-center
                       rounded-full
                       bg-white
                       px-6
@@ -206,7 +210,7 @@ export default function Projects() {
                       text-sm
                       font-medium
                       text-black
-                      transition-transform
+                      transition-all
                       duration-300
                       hover:scale-105
                       hover:bg-zinc-200
@@ -222,6 +226,7 @@ export default function Projects() {
                     className="
                       inline-flex
                       items-center
+                      justify-center
                       rounded-full
                       border
                       border-zinc-700
